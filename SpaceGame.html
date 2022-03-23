@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SpaceGame</title>
+    <style>
+        :root{
+            --dark-space: rgba(20, 8, 59, 1);
+            --safe-space: rgba(53,214,240,1);
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            overflow: hidden;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(to bottom, rgba(200, 200, 200, 1), rgba(150, 120, 140, 1), rgba(111, 101, 101, 1));
+            font-family: 'Roboto', sans-serif;
+        }
+        nav{
+            position: relative;
+            //border: 1px solid red;
+            background: var(--cool-white);
+            padding: 1%;
+            width: 100%;
+            min-height: 6vh;
+            display: flex;
+            justify-content: space-around;
+
+        }
+        nav button{
+            background: red;
+            border: 1px solid white;
+            border-radius: 15%;
+        }
+        ul{
+            position: relative;
+            display: flex;
+            justify-content: space-around;
+            width: 40%;
+            list-style-type: none;
+        }
+        nav li{
+            //border: 1px solid red;
+            box-shadow: 5px 10px 20px #35D6ED;
+            padding: 5%;
+            border-radius: 30%;
+        }
+        button{
+            padding-left: 2%;
+            padding-right: 3%;
+            background: rgba(200,200,200,1);
+            color: white;
+
+        }
+        .CanvasWrapper{
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid white;
+            border-bottom: 1px solid black;
+            height: 68vh;
+
+        }
+        canvas{
+            //width: 100%;
+            //height: 100%;
+            background: linear-gradient(to bottom, var(--dark-space), var(--safe-space));
+
+        }
+        .BottomBar{
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .BottomContent{
+            display: flex;
+            justify-content: center;
+        }
+        .Inventory{
+            //border: 1px solid green;
+            margin-right: 3%;
+            padding: 3%;
+            padding-top: 0;
+            color: white;
+        }
+        .Controls{
+            margin: auto;
+            width: 30%;
+            text-align: center;
+            //border: 1px solid yellow;
+        }
+        .Controls button{
+            color: white;
+            background: rgba(80,70,100, 1);
+            padding: 2%;
+            margin: 2%;
+            border-radius: 20%;
+        }
+        table{
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        td{
+            border: 1px solid rgba(200,200,200,.4);
+            border-right: 0px solid red;
+            //background: yellow;
+            padding-right: 10px;
+            padding-bottom: 0;
+            //margin-left: 3%;
+            //padding-right: 3%;
+        }
+        #DeathWrapper{
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            z-index: 2;
+            background: rgba(255,0,0,0.7);
+            visibility: hidden;
+            //height: 0vh;
+        }
+        #DeathWrapper br{
+            display: block;
+            content: " ";
+            margin: 30vh; 0px;
+        }
+        #DeathWrapper h1{
+            //display: table-cell;
+            color: white;
+            width: 100%;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 4em;
+        }
+    </style>
+    <script src="functions.js"></script>
+    <script src="ui.js"></script>
+    <script src="objects.js"></script>
+
+
+</head>
+<body>
+    <nav class="TopNav">
+        <ul>
+            <button onclick="location.href='https://google.com';">Quit</button>
+            <button>Restart</button>
+
+        </ul>
+        <div>Points:<span id="PointsScore">0</span></div>
+    </nav>
+
+    <div id="DeathWrapper">
+        <br/>
+        <h1>Game Over</h1>
+    </div>
+
+    <div class="CanvasWrapper">
+        <canvas id="GameBoard" style="width: 100%; height: 100%;"></canvas>
+    </div>
+
+    <div class="BottomBar">
+        <div class="BottomContent">
+            <div class="Inventory">
+                <table>
+                    <!-- Health -->
+                    <tr>
+                        <td>Health</td>
+                        <td id="HealthCount">100</td>
+                    </tr>
+                    <!-- Minerals -->
+                    <tr>
+                        <td>Minerals</td>
+                        <td id="MineralCount">0</td>
+                    </tr>
+                    <!-- Resources -->
+                    <tr>
+                        <td>Resources</td>
+                        <td id="ResourceCount">30</td>
+                    </tr>
+                    <!-- Rockets -->
+                    <tr>
+                        <td>Rockets</td>
+                        <td id="RocketCount">3</td>
+                    </tr>
+                    <!-- Beacons -->
+                    <tr>
+                        <td>Beacons</td>
+                        <td id="BeaconCount">1</td>
+                    </tr>
+                    <!-- Hostiles -->
+                    <tr>
+                        <td>Hostiles</td>
+                        <td id="HostileCount">0</td>
+                    </tr>
+                    <!-- Mode -->
+                    <tr>
+                        <td>Mode</td>
+                        <td id="Mode">Explore</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="Controls">
+                <button onclick="find_mine_func()">Find Minerals</button>
+                <button onclick="harvest_func()">Harvest</button>
+                <button onclick="defend_func()">Defend</button>
+                <button onclick="return_home_func()">Return Home</button>
+                <br/>
+                <button onclick="build_beacon_func()">Build Beacon</button>
+                <button onclick="build_rocket_func()">Build Rocket</button>
+            </div>
+        </div>
+    </div>
+<script src="main.js"></script>
+</body>
+</html>
