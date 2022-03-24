@@ -53,8 +53,18 @@ function displayDeathScreen(){
     document.getElementById('DeathWrapper').style.visibility = 'visible'
 }
 function update_Environment(){
-    console.log('Updating Env')
+    console.log('Updating Env'+ENEMY_COOL_DOWN)
     //create enemy f(POINTS)
+
+    if (ENEMY_COOL_DOWN < 1){
+        //create enemy
+        point = new Point(20,20)
+        E = new Enemy(point, [0.1, 0], 100)
+        objects.push(E)
+        //set ENEMY_COOL_DOWN = f(POINTS)
+        ENEMY_COOL_DOWN = 1000*Math.exp(-0.001*POINTS) + 1500
+    }
+    ENEMY_COOL_DOWN -= 1
 }
 //  Animate
 function animateGame(){

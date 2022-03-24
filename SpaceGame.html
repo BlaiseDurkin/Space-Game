@@ -135,6 +135,13 @@
             vertical-align: middle;
             font-size: 4em;
         }
+        .info{
+            color: rgba(200,200, 255, 1);
+
+        }
+        #PointsScore{
+            color: rgba(255,0, 0, 1);
+        }
     </style>
     <script src="functions.js"></script>
     <script src="ui.js"></script>
@@ -145,16 +152,17 @@
 <body>
     <nav class="TopNav">
         <ul>
-            <button onclick="location.href='https://google.com';">Quit</button>
-            <button>Restart</button>
+            <button onclick="location.href='https://google.com';">QUIT</button>
+            <button onclick="alert('Game is paused')">PAUSE</button>
 
         </ul>
-        <div>Points:<span id="PointsScore">0</span></div>
+        <div>Points:<span id="PointsScore" class="info">0</span></div>
     </nav>
 
     <div id="DeathWrapper">
         <br/>
         <h1>Game Over</h1>
+
     </div>
 
     <div class="CanvasWrapper">
@@ -168,37 +176,37 @@
                     <!-- Health -->
                     <tr>
                         <td>Health</td>
-                        <td id="HealthCount">100</td>
+                        <td id="HealthCount" class="info">100</td>
                     </tr>
                     <!-- Minerals -->
                     <tr>
                         <td>Minerals</td>
-                        <td id="MineralCount">0</td>
+                        <td id="MineralCount" class="info">0</td>
                     </tr>
                     <!-- Resources -->
                     <tr>
                         <td>Resources</td>
-                        <td id="ResourceCount">30</td>
+                        <td id="ResourceCount" class="info">30</td>
                     </tr>
                     <!-- Rockets -->
                     <tr>
                         <td>Rockets</td>
-                        <td id="RocketCount">3</td>
+                        <td id="RocketCount" class="info">3</td>
                     </tr>
                     <!-- Beacons -->
                     <tr>
                         <td>Beacons</td>
-                        <td id="BeaconCount">1</td>
+                        <td id="BeaconCount" class="info">1</td>
                     </tr>
                     <!-- Hostiles -->
                     <tr>
                         <td>Hostiles</td>
-                        <td id="HostileCount">0</td>
+                        <td id="HostileCount" class="info">0</td>
                     </tr>
                     <!-- Mode -->
                     <tr>
                         <td>Mode</td>
-                        <td id="Mode">Explore</td>
+                        <td id="Mode" class="info">Explore</td>
                     </tr>
                 </table>
             </div>

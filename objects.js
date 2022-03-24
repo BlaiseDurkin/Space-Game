@@ -378,6 +378,9 @@ class User{
             //update resources
             if (min_distance < 50){
                 MINERALS += 1
+                if (MINERALS > 100 && MINERALS % 100 == 1){
+                    POINTS += Math.round(MINERALS*0.03)
+                }
             }
         }
 
@@ -474,6 +477,7 @@ class User{
             converted = Math.min(MINERALS, max_convert)
             MINERALS -= converted
             RESOURCES += Math.round(converted*conversion_ratio)
+
 
 
         }
@@ -596,6 +600,7 @@ class Enemy{
                 if (this.health < 1){
                     objects.splice(i, 1)
                     console.log('Emeny destroyed')
+                    POINTS += 100
                     return
                 }
             }
@@ -668,6 +673,7 @@ class Enemy{
                 //console.log('this is this')
                 if (this.health < 1){
                     objects.splice(i, 1)
+                    POINTS += 100
                     console.log('Emeny destroyed')
                 }
             }
@@ -759,12 +765,15 @@ class Enemy{
         }
     }
     draw(){
+        /*
         let mid = 3
         let t_var = TIME%(this.radius) + mid
         drawCircle(this.position, t_var, 'rgba(0,0,0,0)', 'white')
         drawCircle(this.position, this.radius, 'rgba(0,0,0,0)', 'red')
         drawCircle(this.position, mid, this.color, 'white')
-
+        */
+        drawShip(this.position, this.radius, 'rgba(110,100,100,1)', 'rgba(200,200,200,1)')
+        drawCircle(this.position, this.radius-3, 'rgba(100,100,100,1)', 'rgba(100,100,100,1)')
     }
 
 }
