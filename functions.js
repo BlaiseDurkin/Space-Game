@@ -10,7 +10,7 @@ BEACONS = 1
 HOSTILES = 0
 MODE = 'Home'
 
-ENEMY_COOL_DOWN = 1000
+ENEMY_COOL_DOWN = 2000
 
 //helper functions
 console.log('hello world')

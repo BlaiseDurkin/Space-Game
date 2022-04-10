@@ -85,11 +85,16 @@ function build_rocket_func(){
 function update_beacons(){
     html_element = document.getElementById('BeaconCount')
     html_element.innerHTML = BEACONS
+
 }
 function build_beacon_func(){
-    //alert('build beacon')
-    BEACONS += 1
-    update_beacons()
+    //alert('build rocket')
+    if (RESOURCES >= 100){
+        BEACONS += 1
+        RESOURCES -= 100
+        update_beacons()
+        update_resources()
+    }
 }
 
 

@@ -275,6 +275,11 @@ class User{
 
     }
     update(){
+        if (BEACONS > 0) {
+            this.health += 50
+
+            BEACONS -= 1
+            }
         HEALTH = this.health
         if (this.health < 1){
             //death

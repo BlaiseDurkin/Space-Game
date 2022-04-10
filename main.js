@@ -62,7 +62,7 @@ function update_Environment(){
         E = new Enemy(point, [0.1, 0], 100)
         objects.push(E)
         //set ENEMY_COOL_DOWN = f(POINTS)
-        ENEMY_COOL_DOWN = 1000*Math.exp(-0.001*POINTS) + 1500
+        ENEMY_COOL_DOWN = 2000/(.01*POINTS + 1) + 1500 //1000*Math.exp(-0.001*POINTS) + 1500
     }
     ENEMY_COOL_DOWN -= 1
 }
